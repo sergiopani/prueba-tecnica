@@ -66,12 +66,12 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
     ```
 
 ## Uso de los endpoints
-Ruta: /questions
-Método: GET
-Parámetros:
-tagged (obligatorio): Etiqueta de Stack Overflow por la que se filtran las preguntas, para utilizar varias usar ;. Ejemplo: php;doctrine;javascript
-todate (opcional): Fecha final en formato UNIX timestamp.
-fromdate (opcional): Fecha de inicio en formato UNIX timestamp.
+- **Ruta**: /questions
+- **Método**: GET
+- **Parámetros**:
+- **tagged (obligatorio)**: Etiqueta de Stack Overflow por la que se filtran las preguntas, para utilizar varias usar ;. Ejemplo: php;doctrine;javascript
+- **todate (opcional)**: Fecha final en formato UNIX timestamp.
+- **fromdate (opcional)**: Fecha de inicio en formato UNIX timestamp.
 
 Ejemplo de uso:
 ```
