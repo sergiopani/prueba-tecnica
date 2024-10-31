@@ -1,14 +1,13 @@
-# Proyecto Symfony StackOverflow API
+# Sergio Paniagua López - StackOverflow API
 
-Este proyecto es una API en Symfony que interactúa con la API pública de Stack Overflow. Permite obtener datos sobre preguntas de los foros de Stack Overflow con ciertos filtros y almacena las consultas en una base de datos.
 
 ## Estructura del Proyecto
 
 ![image](/public/images/estructura_proyecto.png)
 
-- **src/Controller**: Contiene los controladores de la aplicación, incluyendo el controlador `StackOverflowController`, que define los endpoints.
-- **src/Service**: Incluye los servicios que realizan la lógica de negocio, como `StackOverflowService`, que maneja las peticiones a la API de Stack Overflow y el almacenamiento en la base de datos.
-- **src/Entity**: Define las entidades `Query`, que corresponden a las tablas de la base de datos.
+- **src/Controller**: `StackOverflowController`, que define los endpoints.
+- **src/Service**: `StackOverflowService`, que maneja las peticiones a la API de Stack Overflow y el almacenamiento en la base de datos.
+- **src/Entity**: `Query`, que corresponden a las tabla de la base de datos.
 - **config/**: Contiene configuraciones de Symfony, incluyendo la configuración de la base de datos.
 
 ## Diseño de base de datos
@@ -50,6 +49,8 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
     ```bash
     docker-compose up -d
     ```
+![image](/public/images/docker_ps.png)
+
 2. Instala las dependencias de composer
     ```bash
     composer install
@@ -66,7 +67,7 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
 Ruta: /questions
 Método: GET
 Parámetros:
-tagged (obligatorio): Etiqueta de Stack Overflow por la que se filtran las preguntas.
+tagged (obligatorio): Etiqueta de Stack Overflow por la que se filtran las preguntas, para utilizar varias usar ;. Ejemplo: php;doctrine;javascript
 todate (opcional): Fecha final en formato UNIX timestamp.
 fromdate (opcional): Fecha de inicio en formato UNIX timestamp.
 
