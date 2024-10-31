@@ -70,10 +70,11 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
 - **Método**: GET
 - **Parámetros**:
 - **tagged (obligatorio)**: Etiqueta de Stack Overflow por la que se filtran las preguntas, para utilizar varias usar ;. Ejemplo: php;doctrine;javascript
-- **todate (opcional)**: Fecha final en formato UNIX timestamp.
-- **fromdate (opcional)**: Fecha de inicio en formato UNIX timestamp.
+- **todate (opcional)**: Fecha final, vale en formato (año-mes-dia).
+- **fromdate (opcional)**: Fecha de inicio, vale en formato (año-mes-dia), tal como se indica en la url de abajo.
 
 Ejemplo de uso:
+
 ```
 http://localhost/questions?todate=2024-10-30&order=asc&fromdate=2024-10-29&sort=activity&tagged=php&site=stackoverflow
 
