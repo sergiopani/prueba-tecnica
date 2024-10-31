@@ -16,6 +16,7 @@ class StackOverflowService
 
     private HttpClientInterface $client;
     private EntityManagerInterface $entityManager;
+    private $url = 'https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow&tagged=';
 
     public function __construct(
         HttpClientInterface $client,
@@ -28,7 +29,7 @@ class StackOverflowService
     public function fetchQuestions($tagged, $toDate, $fromDate)
     {
 
-        $url = 'https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow&tagged=' . urlencode($tagged);
+        $url = $this->url . urlencode($tagged);
 
         if ($toDate) {
             $url .= '&todate=' . urlencode($toDate);
@@ -52,17 +53,11 @@ class StackOverflowService
 
     public function readQuery($tagged, $toDate = null, $fromDate = null): ?Query
     {
-        $criteria = ['queryString' => $tagged];
+        $query = $this->entityManager->getRepository(Query::class)->findOneBy([
+            'queryString' => $this->url . urlencode($tagged) . '&todate=' . urlencode($toDate) . '&fromdate=' . urlencode($fromDate)
+        ]);
 
-        if ($toDate) {
-            $criteria['toDate'] = $toDate;
-        }
-
-        if ($fromDate) {
-            $criteria['fromDate'] = $fromDate;
-        }
-
-        return $this->entityManager->getRepository(Query::class)->findOneBy($criteria);
+        return $query;
     }
 
     
