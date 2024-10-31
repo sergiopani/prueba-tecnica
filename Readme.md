@@ -33,8 +33,8 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
 
 1. Clona el repositorio en tu máquina local:
    ```bash
-   git clone https://github.com/tu-usuario/proyecto-symfony-stackoverflow.git
-   cd proyecto-symfony-stackoverflow
+   git clone https://github.com/sergiopani/prueba-tecnica.git
+   cd /prueba-tecnica
     ```
 2. Configura el archivo .env con los detalles de conexión de la base de datos:
     ```bash
