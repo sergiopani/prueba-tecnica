@@ -45,17 +45,19 @@ He obtado por crear una entidad Query, donde voy a almacenar en el campo questio
     MYSQL_PASSWORD=1234
     ```
 ## Instalación
-1. Inicia Docker y ejecuta el contenedor de MySQL
+
+1. Crea el archivo ./.docker/.env.nginx.local usando ./.docker/.env.nginx como plantilla. El valor de la variable NGINX_BACKEND_DOMAIN es el server_name utilizado en NGINX.
+2. Ves a ./docker y ejecuta el contenedor de MySQL
     ```bash
     docker-compose up -d
     ```
 ![image](/public/images/docker_ps.png)
 
-2. Instala las dependencias de composer
+3. Instala las dependencias de composer
     ```bash
     composer install
     ```
-3. Genera la base de datos y las tablas necesarias usando migraciones:
+4. Genera la base de datos y las tablas necesarias usando migraciones:
 
     ```bash
     php bin/console doctrine:database:create
